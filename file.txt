@@ -1,0 +1,10 @@
+
+
+API Description
+create user with field name, email, password, conformpassowrd, phonenumber, 
+validate password and conformpassowrd is same or not.
+Use bcrypt to generate password hash.
+Add validation for email, phonenumber, password required and phonenumber should be 10 characters long, password should be 6	characters long
+Handle login with email password.
+Use jwt to generate auth token.
+Add login validation like, email is required and password is required, min length 6 characters.
