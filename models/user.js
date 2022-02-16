@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
   //for password more complixy use pakage
   confirmpassword: {
     type: String,
-
     maxlength: 255,
     minlength: 6,
   },
@@ -58,4 +57,5 @@ function validateUser(user) {
 }
 
 exports.User = User;
+exports.userSchema = userSchema;
 exports.validate = validateUser;

@@ -18,16 +18,19 @@ router.get("/check", auth, async (req, res) => {
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-
+  //findone email
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
 
-
-  if(req.body.password!==req.body.confirmpassword) return res.status(400).send("confirm password and password are not same ");
+  // checked confirm and password same
+  if (req.body.password !== req.body.confirmpassword)
+    return res.status(400).send("confirm password and password are not same");
 
   // repeating req.body we can use _ lodash using pick []method
-  user = new User(_.pick(req.body, ["name", "email", "password","phonenumber"]));
-  const salt = await bcrypt.genSalt(10); //bcrypt is used for password 
+  user = new User(
+    _.pick(req.body, ["name", "email", "password", "phonenumber"])
+  );
+  const salt = await bcrypt.genSalt(10); //bcrypt is used for password
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
   // res.send(user);
@@ -44,7 +47,7 @@ router.put("/:id", auth, async (req, res) => {
     req.params.id,
     {
       name: req.body.name,
-      reg_email: req.body.email,
+      email: req.body.email,
       password: req.body.password,
     },
     { new: true }
