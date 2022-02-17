@@ -26,5 +26,5 @@ app.use("/api/auth", auth);
 app.use("/api/prod", prod);
 app.use("/api/cart",cart);
 //server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

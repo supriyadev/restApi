@@ -30,7 +30,8 @@ const productSchema = new mongoose.Schema({
   },
   image:{
     type:String,
-  }
+    require:true,
+  },
 });
 
 
@@ -42,7 +43,8 @@ function validateProduct(product) {
     prod_name: Joi.string().min(5).max(20).required(),
     prod_description: Joi.string().min(5).max(255).required(),
     userId: Joi.objectId().required(),
-  
+    price: Joi.number().required(),
+    // image:Joi.string().required(),
 
   });
   return (validate = schema.validate(product));

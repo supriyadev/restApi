@@ -16,3 +16,13 @@ Task
 3) end user can search product by name //done
 4) loggedin user can add any product into cart //done
 5) if user is not logged in simply shows please login to add product //done 
+
+
+Task List 
+1) Add image to product ( you can any number of images for single product) //1 hr
+2) Add pagination to get all product API /15min
+3) Allow loggedin user to upload one document /10min
+4) Add validation while uploading document (like it should be a pdf or docx) /20min
+5) Create API through which authorized user can download uploaded document /1hr
+6) Try to configure email management - like on successful registration user get email notification //1.5hr
+7) Create one API to display products who has similar price //15min
